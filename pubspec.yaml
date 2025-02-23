@@ -29,6 +29,8 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.5
+  flutter_lints: ^5.0.0
   flutter:
     sdk: flutter
 
@@ -47,13 +49,18 @@ flutter_icons:
   image_path: "assets/images/ic_launcher.png" # Your logo path
   adaptive_icon_background: "#4F2B1D" # Background color for Android adaptive icons
   adaptive_icon_foreground: "assets/images/ic_launcher.png" # Foreground image for Android adaptive icons
+flutter_native_splash:
+  color: "#4f2b1d"
+  android_12:
+    icon_background_color: "#4f2b1d"
+    icon_background_color_dark: "#4f2b1d"
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

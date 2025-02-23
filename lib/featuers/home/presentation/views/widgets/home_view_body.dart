@@ -1,3 +1,5 @@
+import 'package:caffeine_dashboard/core/utils/app_colors.dart';
+import 'package:caffeine_dashboard/featuers/home/presentation/views/widgets/custom_header_for_home.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -5,6 +7,14 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column();
+    return Column(
+      children: [
+        Container(
+          color: AppColors.mainColorTheme,
+          height: MediaQuery.of(context).size.height * 0.02,
+        ),
+        CustomAppBarForHomePage(),
+      ],
+    );
   }
 }

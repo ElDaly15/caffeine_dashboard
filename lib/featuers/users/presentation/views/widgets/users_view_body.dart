@@ -1,4 +1,4 @@
-import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/custom_cotaniner_of_user_item.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/list_view_of_users_item.dart';
 import 'package:flutter/material.dart';
 
 class UsersViewBody extends StatelessWidget {
@@ -10,9 +10,7 @@ class UsersViewBody extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: CustomScrollView(
         physics: ClampingScrollPhysics(),
-        slivers: [
-          SliverToBoxAdapter(child: CustomContainerOfUserItem(onTap: () {})),
-        ],
+        slivers: [ListViewOfUsersItems()],
       ),
     );
   }

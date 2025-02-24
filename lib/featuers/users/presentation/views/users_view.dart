@@ -1,5 +1,6 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/views/search_view.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/users_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -12,6 +13,20 @@ class UsersView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const SearchView();
+                  },
+                ),
+              );
+            },
+            icon: Icon(IconlyLight.search, color: Colors.white),
+          ),
+        ],
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: () {

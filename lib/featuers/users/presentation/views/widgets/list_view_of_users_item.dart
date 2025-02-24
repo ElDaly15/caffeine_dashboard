@@ -1,3 +1,4 @@
+import 'package:caffeine_dashboard/featuers/users/presentation/views/manager_user_view.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/custom_cotaniner_of_user_item.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,17 @@ class ListViewOfUsersItems extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 6),
-          child: CustomContainerOfUserItem(onTap: () {}),
+          child: CustomContainerOfUserItem(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return ManagerUserView();
+                  },
+                ),
+              );
+            },
+          ),
         );
       },
     );

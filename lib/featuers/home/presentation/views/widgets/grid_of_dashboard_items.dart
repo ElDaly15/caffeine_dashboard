@@ -1,6 +1,7 @@
 import 'package:caffeine_dashboard/featuers/home/data/models/dashboard_main_cotnainer_model.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/widgets/container_of_dashboard_item.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/views/users_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconly/iconly.dart';
@@ -17,7 +18,7 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
     DashboardMainCotnainerModel(
       title: 'Users',
       icon: IconlyBold.user_2,
-      screen: HomeView(),
+      screen: UsersView(),
     ),
     DashboardMainCotnainerModel(
       title: 'Orders',
@@ -59,34 +60,32 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SliverGrid.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 0,
-          mainAxisSpacing: 10,
-          childAspectRatio: 1.35,
-        ),
-        itemCount: dashboardMainCotnainerModel.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: ContainerOfSelectionItemInDashboard(
-              title: dashboardMainCotnainerModel[index].title,
-              icon: dashboardMainCotnainerModel[index].icon,
-              onPress: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return dashboardMainCotnainerModel[index].screen;
-                    },
-                  ),
-                );
-              },
-            ),
-          );
-        },
+    return SliverGrid.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 0,
+        mainAxisSpacing: 10,
+        childAspectRatio: 1.35,
       ),
+      itemCount: dashboardMainCotnainerModel.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12),
+          child: ContainerOfSelectionItemInDashboard(
+            title: dashboardMainCotnainerModel[index].title,
+            icon: dashboardMainCotnainerModel[index].icon,
+            onPress: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return dashboardMainCotnainerModel[index].screen;
+                  },
+                ),
+              );
+            },
+          ),
+        );
+      },
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:caffeine_dashboard/featuers/home/data/models/dashboard_main_cotnainer_model.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/widgets/container_of_dashboard_item.dart';
+import 'package:caffeine_dashboard/featuers/notification/presentation/views/notification_view.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/users_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -49,7 +50,7 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
     DashboardMainCotnainerModel(
       title: 'Notifications',
       icon: IconlyBold.notification,
-      screen: HomeView(),
+      screen: NotificationView(),
     ),
     DashboardMainCotnainerModel(
       title: 'Add Notification',

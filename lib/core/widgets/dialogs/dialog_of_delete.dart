@@ -44,7 +44,7 @@ class _DeleteConfirmDialogState extends State<DialogOfDelete> {
               const SizedBox(height: 10),
               Text(
                 'Are You Sure You Want to delete this ${widget.subTitle} ?',
-                style: TextStyles.font14SemiBold(context),
+                style: TextStyles.font18SemiBold(context),
               ),
               const SizedBox(height: 10),
 

@@ -1,4 +1,5 @@
 import 'package:caffeine_dashboard/core/widgets/dialogs/dialog_of_delete.dart';
+import 'package:caffeine_dashboard/featuers/ads/presentation/views/edit_ads_view.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/widgets/custom_ads_item.dart';
 import 'package:flutter/material.dart';
 
@@ -27,7 +28,11 @@ class ListViewOfAds extends StatelessWidget {
                   },
                 );
               },
-              onEdit: () {},
+              onEdit: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const EditAdsView()),
+                );
+              },
             ),
           );
         },

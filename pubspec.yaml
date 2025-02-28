@@ -96,6 +96,12 @@ flutter:
           weight: 700
         - asset: assets/fonts/Sora-ExtraBold.ttf
           weight: 800
+    - family: Alexandria
+      fonts:
+        - asset: assets/fonts/Alexandria-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Alexandria-SemiBold.ttf
+          weight: 600
 
 flutter_assets:
   assets_path: assets/images/

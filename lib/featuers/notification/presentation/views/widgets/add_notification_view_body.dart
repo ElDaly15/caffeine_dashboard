@@ -31,8 +31,17 @@ class _AddNotificationViewBodyState extends State<AddNotificationViewBody> {
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
+
             CustomEditTextField(
-              title: 'Description',
+              title: 'Description [En]',
+              onChanged: (value) {},
+
+              textInputType: TextInputType.text,
+            ),
+
+            SizedBox(height: 20),
+            CustomEditTextField(
+              title: 'Description [Ar]',
               onChanged: (value) {},
 
               textInputType: TextInputType.text,

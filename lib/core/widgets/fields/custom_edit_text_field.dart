@@ -28,7 +28,13 @@ class _CustomEditTextFieldState extends State<CustomEditTextField> {
           selectionHandleColor: AppColors.mainColorTheme,
         ),
       ),
-      child: TextField(
+      child: TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return '${widget.title} is required';
+          }
+          return null;
+        },
         keyboardType: widget.textInputType,
         controller: widget.textEditingController,
         onChanged: widget.onChanged,

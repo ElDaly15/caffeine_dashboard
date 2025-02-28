@@ -5,6 +5,7 @@ import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.da
 import 'package:caffeine_dashboard/featuers/home/presentation/views/widgets/container_of_dashboard_item.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/add_notification_view.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/notification_view.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/views/add_product_view.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/users_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -37,7 +38,7 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
     DashboardMainCotnainerModel(
       title: 'Add Product',
       icon: IconlyBold.plus,
-      screen: HomeView(),
+      screen: AddProductView(),
     ),
 
     DashboardMainCotnainerModel(

@@ -1,11 +1,12 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
-import 'package:caffeine_dashboard/featuers/ads/presentation/views/widgets/add_ads_view_body.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/views/widgets/add_product_view_body.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/manager_user_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
-class AddAdsView extends StatelessWidget {
-  const AddAdsView({super.key});
+class AddProductView extends StatelessWidget {
+  const AddProductView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +21,14 @@ class AddAdsView extends StatelessWidget {
           icon: Icon(IconlyLight.arrow_left_2, color: Colors.white),
         ),
         title: Text(
-          'Add Ads',
+          'Add Product',
           style: TextStyles.font20Regular(
             context,
           ).copyWith(color: Colors.white),
         ),
         backgroundColor: AppColors.mainColorTheme,
       ),
-      body: const AddAdsViewBody(),
+      body: const AddProductViewBody(),
     );
   }
 }

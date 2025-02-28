@@ -9,34 +9,39 @@ class ListViewOfAds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
-            child: CustomAdsItem(
-              onDelete: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return DialogOfDelete(
-                      onDelete: () {
-                        Navigator.pop(context);
-                      },
-                      title: ' Delete Ads',
-                      subTitle: 'ads',
-                    );
-                  },
-                );
-              },
-              onEdit: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const EditAdsView()),
-                );
-              },
-            ),
-          );
-        },
-        itemCount: 5,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 22),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
+              child: CustomAdsItem(
+                onDelete: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return DialogOfDelete(
+                        onDelete: () {
+                          Navigator.pop(context);
+                        },
+                        title: ' Delete Ads',
+                        subTitle: 'ads',
+                      );
+                    },
+                  );
+                },
+                onEdit: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const EditAdsView(),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+          itemCount: 5,
+        ),
       ),
     );
   }

@@ -4,9 +4,15 @@ import 'package:caffeine_dashboard/core/widgets/fields/custom_edit_text_field.da
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class EditNotficationViewBody extends StatelessWidget {
+class EditNotficationViewBody extends StatefulWidget {
   const EditNotficationViewBody({super.key});
 
+  @override
+  State<EditNotficationViewBody> createState() =>
+      _EditNotficationViewBodyState();
+}
+
+class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,9 +41,7 @@ class EditNotficationViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           CustomBigElevatedBtmWithIcon(
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            onPressed: () {},
             title: 'Save',
             iconData: FontAwesomeIcons.floppyDisk,
           ),

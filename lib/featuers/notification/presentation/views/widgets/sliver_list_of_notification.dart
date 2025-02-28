@@ -12,7 +12,7 @@ class SliverListOfNotification extends StatelessWidget {
       itemCount: 5,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 22),
           child: ContainerOfNotificationItem(
             onDelete: () {
               showDialog(

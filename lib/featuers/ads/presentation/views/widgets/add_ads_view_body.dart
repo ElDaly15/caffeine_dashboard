@@ -3,38 +3,53 @@ import 'package:caffeine_dashboard/core/widgets/fields/custom_edit_text_field.da
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class AddAdsViewBody extends StatelessWidget {
+class AddAdsViewBody extends StatefulWidget {
   const AddAdsViewBody({super.key});
 
+  @override
+  State<AddAdsViewBody> createState() => _AddAdsViewBodyState();
+}
+
+class _AddAdsViewBodyState extends State<AddAdsViewBody> {
+  final _formKey = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: Column(
-        children: [
-          const SizedBox(height: 20),
-          CustomEditTextField(
-            title: 'Title',
-            onChanged: (value) {},
-            textEditingController: TextEditingController(),
-            textInputType: TextInputType.text,
-          ),
-          const SizedBox(height: 20),
-          CustomEditTextField(
-            title: 'Link Url',
-            onChanged: (value) {},
-            textEditingController: TextEditingController(),
-            textInputType: TextInputType.text,
-          ),
-          SizedBox(height: 20),
-          CustomBigElevatedBtmWithIcon(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            title: 'Add',
-            iconData: FontAwesomeIcons.plus,
-          ),
-        ],
+      child: Form(
+        key: _formKey,
+        autovalidateMode: autovalidateMode,
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            CustomEditTextField(
+              title: 'Title',
+              onChanged: (value) {},
+              textInputType: TextInputType.text,
+            ),
+            const SizedBox(height: 20),
+            CustomEditTextField(
+              title: 'Link Url',
+              onChanged: (value) {},
+              textInputType: TextInputType.text,
+            ),
+            SizedBox(height: 20),
+            CustomBigElevatedBtmWithIcon(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                } else {
+                  setState(() {
+                    autovalidateMode = AutovalidateMode.always;
+                  });
+                }
+              },
+              title: 'Add',
+              iconData: FontAwesomeIcons.plus,
+            ),
+          ],
+        ),
       ),
     );
   }

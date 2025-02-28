@@ -25,8 +25,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
 
   final List<String> infoItems = ['Hot', 'Cold', 'Hot/Cold'];
   final _formKey = GlobalKey<FormState>();
-  String? selectedCategory, info;
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? selectedCategory, info;
   @override
   Widget build(BuildContext context) {
     return Padding(

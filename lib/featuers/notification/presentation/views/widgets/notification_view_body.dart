@@ -6,14 +6,11 @@ class NotificationViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 20)),
-          SliverListOfNotification(),
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(child: SizedBox(height: 20)),
+        SliverListOfNotification(),
+      ],
     );
   }
 }

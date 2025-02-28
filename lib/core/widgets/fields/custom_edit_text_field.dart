@@ -7,12 +7,12 @@ class CustomEditTextField extends StatefulWidget {
     super.key,
     required this.title,
     required this.onChanged,
-    required this.textEditingController,
+    this.textEditingController,
     required this.textInputType,
   });
   final String title;
   final Function(String)? onChanged;
-  final TextEditingController textEditingController;
+  final TextEditingController? textEditingController;
   final TextInputType textInputType;
   @override
   State<CustomEditTextField> createState() => _CustomEditTextFieldState();

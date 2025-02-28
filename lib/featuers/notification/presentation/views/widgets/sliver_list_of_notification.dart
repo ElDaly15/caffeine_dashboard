@@ -1,6 +1,6 @@
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/edit_notification_view.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/widgets/container_of_notificaiton_item.dart';
-import 'package:caffeine_dashboard/featuers/notification/presentation/views/widgets/dialog_of_delete.dart';
+import 'package:caffeine_dashboard/core/widgets/dialogs/dialog_of_delete.dart';
 import 'package:flutter/material.dart';
 
 class SliverListOfNotification extends StatelessWidget {
@@ -18,7 +18,13 @@ class SliverListOfNotification extends StatelessWidget {
               showDialog(
                 context: context,
                 builder:
-                    (context) => DialogOfDelete(title: 'Delete Notification'),
+                    (context) => DialogOfDelete(
+                      onDelete: () {
+                        Navigator.pop(context);
+                      },
+                      title: 'Delete Notification',
+                      subTitle: 'notification',
+                    ),
               );
             },
             onEdit: () {

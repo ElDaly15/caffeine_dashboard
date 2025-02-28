@@ -3,8 +3,14 @@ import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class DialogOfDelete extends StatefulWidget {
-  const DialogOfDelete({super.key, required this.title});
-  final String title;
+  const DialogOfDelete({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.onDelete,
+  });
+  final String title, subTitle;
+  final void Function() onDelete;
   @override
   State<DialogOfDelete> createState() => _DeleteConfirmDialogState();
 }
@@ -37,7 +43,7 @@ class _DeleteConfirmDialogState extends State<DialogOfDelete> {
               ),
               const SizedBox(height: 10),
               Text(
-                'Are You Sure You Want to delete this notification ?',
+                'Are You Sure You Want to delete this ${widget.subTitle} ?',
                 style: TextStyles.font14SemiBold(context),
               ),
               const SizedBox(height: 10),
@@ -59,9 +65,7 @@ class _DeleteConfirmDialogState extends State<DialogOfDelete> {
                       ),
                       backgroundColor: Colors.red,
                     ),
-                    onPressed: () async {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: widget.onDelete,
                     child: Text(
                       '${widget.title} ',
                       style: TextStyles.font14Medium(

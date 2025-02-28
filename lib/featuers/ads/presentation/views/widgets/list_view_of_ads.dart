@@ -1,3 +1,4 @@
+import 'package:caffeine_dashboard/core/widgets/dialogs/dialog_of_delete.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/widgets/custom_ads_item.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,23 @@ class ListViewOfAds extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 10),
-            child: CustomAdsItem(onDelete: () {}, onEdit: () {}),
+            child: CustomAdsItem(
+              onDelete: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return DialogOfDelete(
+                      onDelete: () {
+                        Navigator.pop(context);
+                      },
+                      title: ' Delete Ads',
+                      subTitle: 'ads',
+                    );
+                  },
+                );
+              },
+              onEdit: () {},
+            ),
           );
         },
         itemCount: 5,

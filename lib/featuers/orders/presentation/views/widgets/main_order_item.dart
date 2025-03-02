@@ -1,12 +1,16 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
-import 'package:caffeine_dashboard/core/utils/app_images.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
 class MainOrderItem extends StatelessWidget {
-  const MainOrderItem({super.key});
-
+  const MainOrderItem({
+    super.key,
+    required this.onTap,
+    required this.itemCount,
+  });
+  final void Function() onTap;
+  final String itemCount;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +25,16 @@ class MainOrderItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.asset(Assets.imagesIcLauncher, scale: 10),
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 25),
+              decoration: BoxDecoration(color: Colors.white),
+              child: Text(
+                '#$itemCount',
+                style: TextStyles.font18Medium(
+                  context,
+                ).copyWith(color: AppColors.mainColorTheme),
+              ),
+            ),
           ),
           const SizedBox(width: 10),
           SizedBox(
@@ -30,14 +43,14 @@ class MainOrderItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Coffe Latte ',
+                  'Mazen El Daly',
                   style: TextStyles.font18Medium(
                     context,
                   ).copyWith(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  'S | Quantity: 1',
+                  r'$20.00',
                   style: TextStyles.font14Medium(
                     context,
                   ).copyWith(color: Colors.white),
@@ -54,12 +67,12 @@ class MainOrderItem extends StatelessWidget {
             ),
           ),
           Spacer(),
-          Text(
-            'On  Delivery',
-            style: TextStyles.font18Medium(
-              context,
-            ).copyWith(color: Colors.white),
-            overflow: TextOverflow.ellipsis,
+          IconButton(
+            onPressed: onTap,
+            icon: const Icon(
+              Icons.arrow_circle_right_outlined,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

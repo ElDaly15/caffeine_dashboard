@@ -1,7 +1,7 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/orders/presentation/views/search_main_orders.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/views/widgets/orders_view_body.dart';
-import 'package:caffeine_dashboard/featuers/users/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -19,7 +19,7 @@ class OrdersView extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return const SearchView();
+                    return const SearchMainOrders();
                   },
                 ),
               );

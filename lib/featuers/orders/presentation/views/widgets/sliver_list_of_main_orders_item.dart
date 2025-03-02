@@ -1,3 +1,4 @@
+import 'package:caffeine_dashboard/featuers/orders/presentation/views/order_details_view.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/views/widgets/main_order_item.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,18 @@ class SliverListOfMainOrdersItems extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
-          child: MainOrderItem(itemCount: '${index + 1}', onTap: () {}),
+          child: MainOrderItem(
+            itemCount: '${index + 1}',
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const OrderDetailsView();
+                  },
+                ),
+              );
+            },
+          ),
         );
       },
     );

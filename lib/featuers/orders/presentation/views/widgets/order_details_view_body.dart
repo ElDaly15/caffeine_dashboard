@@ -19,10 +19,21 @@ class _OrderDetailsViewBodyState extends State<OrderDetailsViewBody> {
     return CustomScrollView(
       slivers: [
         SliverToBoxAdapter(child: SizedBox(height: 20)),
+
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
           sliver: SliverToBoxAdapter(
             child: Text('Order Info', style: TextStyles.font20Medium(context)),
+          ),
+        ),
+        SliverToBoxAdapter(child: SizedBox(height: 10)),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          sliver: SliverToBoxAdapter(
+            child: CustomCotnainerOfUserInfo(
+              title: 'Mazen El Daly',
+              iconData: IconlyLight.profile,
+            ),
           ),
         ),
         SliverToBoxAdapter(child: SizedBox(height: 10)),

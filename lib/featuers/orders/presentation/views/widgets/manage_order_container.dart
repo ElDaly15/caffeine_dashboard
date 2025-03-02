@@ -27,12 +27,15 @@ class ManageOrderContainer extends StatelessWidget {
           color: isActive ? Colors.white : AppColors.mainColorTheme,
         ),
         child: Center(
-          child: Text(
-            title,
-            style: TextStyles.font18Medium(context).copyWith(
-              color: isActive ? AppColors.mainColorTheme : Colors.white,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              title,
+              style: TextStyles.font18Medium(context).copyWith(
+                color: isActive ? AppColors.mainColorTheme : Colors.white,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
           ),
         ),
       ),

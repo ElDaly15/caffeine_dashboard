@@ -1,5 +1,6 @@
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/add_ads_view.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/ads_view.dart';
+import 'package:caffeine_dashboard/featuers/copouns/presentation/views/copoun_view.dart';
 import 'package:caffeine_dashboard/featuers/home/data/models/dashboard_main_cotnainer_model.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/widgets/container_of_dashboard_item.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/add_notification_view.dart';
@@ -59,6 +60,16 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
     ),
     DashboardMainCotnainerModel(
       title: 'Add Notification',
+      icon: IconlyBold.plus,
+      screen: AddNotificationView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Coupons',
+      icon: IconlyBold.discount,
+      screen: CopounView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Coupon',
       icon: IconlyBold.plus,
       screen: AddNotificationView(),
     ),

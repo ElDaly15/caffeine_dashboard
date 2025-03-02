@@ -1,10 +1,10 @@
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/add_ads_view.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/ads_view.dart';
 import 'package:caffeine_dashboard/featuers/home/data/models/dashboard_main_cotnainer_model.dart';
-import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/widgets/container_of_dashboard_item.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/add_notification_view.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/views/notification_view.dart';
+import 'package:caffeine_dashboard/featuers/orders/presentation/views/orders_view.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/views/add_product_view.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/views/products_view.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/users_view.dart';
@@ -29,7 +29,7 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
     DashboardMainCotnainerModel(
       title: 'Orders',
       icon: IconlyBold.bag,
-      screen: HomeView(),
+      screen: OrdersView(),
     ),
     DashboardMainCotnainerModel(
       title: 'Products',

@@ -21,22 +21,41 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          Text('Edit Title', style: TextStyles.font20SemiBold(context)),
+          Text('Edit Title [En]', style: TextStyles.font20SemiBold(context)),
           CustomEditTextField(
-            title: 'Title',
+            title: 'Title [En]',
             onChanged: (value) {},
             textEditingController: TextEditingController(text: 'Sale On Latte'),
             textInputType: TextInputType.text,
           ),
           const SizedBox(height: 20),
-          Text('Edit Description', style: TextStyles.font20SemiBold(context)),
+          Text('Edit Title [Ar]', style: TextStyles.font20SemiBold(context)),
           CustomEditTextField(
-            title: 'Description',
+            title: 'Title [Ar]',
             onChanged: (value) {},
-            textEditingController: TextEditingController(
-              text:
-                  'New Sale For Caffe Latte , Now In Maadi , Heilioples go to get it now',
-            ),
+            textEditingController: TextEditingController(text: 'سيل اون لاتيه'),
+            textInputType: TextInputType.text,
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Edit Description [En]',
+            style: TextStyles.font20SemiBold(context),
+          ),
+          CustomEditTextField(
+            title: 'Description [En]',
+            onChanged: (value) {},
+            textEditingController: TextEditingController(text: 'Sale On Latte'),
+            textInputType: TextInputType.text,
+          ),
+          const SizedBox(height: 20),
+          Text(
+            'Edit Description [Ar]',
+            style: TextStyles.font20SemiBold(context),
+          ),
+          CustomEditTextField(
+            title: 'Description [Ar]',
+            onChanged: (value) {},
+            textEditingController: TextEditingController(text: 'مش عارف'),
             textInputType: TextInputType.text,
           ),
           const SizedBox(height: 20),

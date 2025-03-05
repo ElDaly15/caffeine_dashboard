@@ -1,7 +1,10 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
-import 'package:caffeine_dashboard/featuers/product/presentation/views/widgets/add_product_view_body.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/add_product/add_product_cubit.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/search_code/search_product_code_cubit.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/views/widgets/add_prodcut_view_consumer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
 class AddProductView extends StatelessWidget {
@@ -27,7 +30,13 @@ class AddProductView extends StatelessWidget {
         ),
         backgroundColor: AppColors.mainColorTheme,
       ),
-      body: const AddProductViewBody(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => AddProductCubit()),
+          BlocProvider(create: (context) => SearchProductCodeCubit()),
+        ],
+        child: const AddProdcutViewConsumer(),
+      ),
     );
   }
 }

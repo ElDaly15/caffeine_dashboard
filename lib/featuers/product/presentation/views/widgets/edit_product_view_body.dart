@@ -1,12 +1,17 @@
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:caffeine_dashboard/core/widgets/buttoms/big_elevated_btm_with_icon.dart';
 import 'package:caffeine_dashboard/core/widgets/fields/custom_edit_text_field.dart';
+import 'package:caffeine_dashboard/featuers/product/data/model/product_model.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/update_product/update_product_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/views/widgets/custom_drop_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class EditProductViewBody extends StatefulWidget {
-  const EditProductViewBody({super.key});
+  const EditProductViewBody({super.key, required this.productModel});
+
+  final ProductModel productModel;
 
   @override
   State<EditProductViewBody> createState() => _EditProductViewBodyState();
@@ -22,7 +27,17 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
   ];
 
   final List<String> infoItems = ['Hot', 'Cold', 'Hot/Cold'];
-  String? selectedCategory, info;
+  String? selectedCategory,
+      info,
+      productNameEn,
+      productNameAr,
+      productDescriptionEn,
+      productDescriptionAr,
+      productCategory,
+      productImage,
+      productInfo,
+      productPrice,
+      productCode;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,51 +48,93 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
           children: [
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Product Name [En]',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productNameEn = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productNameEn,
+              ),
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Product Name [Ar]',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productNameAr = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productNameAr,
+              ),
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 5,
+
               title: 'Product Description [En]',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productDescriptionEn = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productDescriptionEn,
+              ),
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 5,
+
               title: 'Product Description [Ar]',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productDescriptionAr = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productDescriptionAr,
+              ),
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Product Price',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productPrice = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productPrice,
+              ),
               textInputType: TextInputType.number,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Product Code',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productCode = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productCode,
+              ),
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 2,
+
               title: 'Image Url',
-              onChanged: (value) {},
-              textEditingController: TextEditingController(text: '1'),
+              onChanged: (value) {
+                productImage = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productImage,
+              ),
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
@@ -122,7 +179,30 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
             ),
             SizedBox(height: 20),
             CustomBigElevatedBtmWithIcon(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UpdateProductCubit>(context).updateProduct(
+                  code: widget.productModel.productCode,
+                  productNameAr:
+                      productDescriptionAr ??
+                      widget.productModel.productDescriptionAr,
+                  productNameEn:
+                      productNameEn ?? widget.productModel.productNameEn,
+                  productDescriptionAr:
+                      productDescriptionAr ??
+                      widget.productModel.productDescriptionAr,
+                  productDescriptionEn:
+                      productDescriptionEn ??
+                      widget.productModel.productDescriptionEn,
+                  productCategory:
+                      selectedCategory ?? widget.productModel.productCategory,
+                  productImage:
+                      productImage ?? widget.productModel.productImage,
+                  productInfo: info ?? widget.productModel.productInfo,
+                  productPrice:
+                      productPrice ?? widget.productModel.productPrice,
+                  productCode: productCode ?? widget.productModel.productCode,
+                );
+              },
               title: 'Edit Product',
               iconData: FontAwesomeIcons.floppyDisk,
             ),

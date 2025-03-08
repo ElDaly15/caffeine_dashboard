@@ -9,11 +9,13 @@ class CustomEditTextField extends StatefulWidget {
     required this.onChanged,
     this.textEditingController,
     required this.textInputType,
+    required this.maxlines,
   });
   final String title;
   final Function(String)? onChanged;
   final TextEditingController? textEditingController;
   final TextInputType textInputType;
+  final int maxlines;
   @override
   State<CustomEditTextField> createState() => _CustomEditTextFieldState();
 }
@@ -36,6 +38,7 @@ class _CustomEditTextFieldState extends State<CustomEditTextField> {
           return null;
         },
         keyboardType: widget.textInputType,
+        maxLines: widget.maxlines,
         controller: widget.textEditingController,
         onChanged: widget.onChanged,
         decoration: InputDecoration(

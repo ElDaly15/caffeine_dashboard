@@ -25,6 +25,8 @@ class _AddNotificationViewBodyState extends State<AddNotificationViewBody> {
           children: [
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Title [En]',
               onChanged: (value) {},
 
@@ -32,6 +34,8 @@ class _AddNotificationViewBodyState extends State<AddNotificationViewBody> {
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Title [Ar]',
               onChanged: (value) {},
 
@@ -39,6 +43,8 @@ class _AddNotificationViewBodyState extends State<AddNotificationViewBody> {
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 5,
+
               title: 'Description [En]',
               onChanged: (value) {},
 
@@ -47,6 +53,8 @@ class _AddNotificationViewBodyState extends State<AddNotificationViewBody> {
 
             SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 5,
+
               title: 'Description [Ar]',
               onChanged: (value) {},
 

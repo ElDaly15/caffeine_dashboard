@@ -23,6 +23,8 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
           const SizedBox(height: 20),
           Text('Edit Title [En]', style: TextStyles.font20SemiBold(context)),
           CustomEditTextField(
+            maxlines: 1,
+
             title: 'Title [En]',
             onChanged: (value) {},
             textEditingController: TextEditingController(text: 'Sale On Latte'),
@@ -31,6 +33,8 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
           const SizedBox(height: 20),
           Text('Edit Title [Ar]', style: TextStyles.font20SemiBold(context)),
           CustomEditTextField(
+            maxlines: 1,
+
             title: 'Title [Ar]',
             onChanged: (value) {},
             textEditingController: TextEditingController(text: 'سيل اون لاتيه'),
@@ -42,6 +46,8 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
             style: TextStyles.font20SemiBold(context),
           ),
           CustomEditTextField(
+            maxlines: 5,
+
             title: 'Description [En]',
             onChanged: (value) {},
             textEditingController: TextEditingController(text: 'Sale On Latte'),
@@ -53,6 +59,8 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
             style: TextStyles.font20SemiBold(context),
           ),
           CustomEditTextField(
+            maxlines: 5,
+
             title: 'Description [Ar]',
             onChanged: (value) {},
             textEditingController: TextEditingController(text: 'مش عارف'),

@@ -8,7 +8,7 @@ class SearchProductsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: Column(children: [ListViewOfProducts()]),
+      child: Column(children: [ListViewOfProducts(products: [])]),
     );
   }
 }

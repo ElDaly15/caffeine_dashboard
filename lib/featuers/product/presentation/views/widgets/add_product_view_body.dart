@@ -54,6 +54,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
             children: [
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 1,
+
                 title: 'Product Name [En]',
                 onChanged: (value) {
                   productNameEn = value;
@@ -63,6 +65,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 1,
+
                 title: 'Product Name [Ar]',
                 onChanged: (value) {
                   productNameAr = value;
@@ -72,6 +76,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 5,
+
                 title: 'Product Description [En]',
                 onChanged: (value) {
                   productDescriptionEn = value;
@@ -81,6 +87,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 5,
+
                 title: 'Product Description [Ar]',
                 onChanged: (value) {
                   productDescriptionAr = value;
@@ -90,6 +98,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 1,
+
                 title: 'Product Price',
                 onChanged: (value) {
                   productPrice = value;
@@ -99,6 +109,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 1,
+
                 title: 'Product Code',
                 onChanged: (value) {
                   productCode = value;
@@ -108,6 +120,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               ),
               const SizedBox(height: 20),
               CustomEditTextField(
+                maxlines: 1,
+
                 title: 'Image Url',
                 onChanged: (value) {
                   productImage = value;

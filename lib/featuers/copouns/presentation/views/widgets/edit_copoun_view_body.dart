@@ -22,6 +22,8 @@ class _EditCopounViewBodyState extends State<EditCopounViewBody> {
           children: [
             SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Copoun Title',
               onChanged: (value) {},
               textEditingController: TextEditingController(
@@ -31,6 +33,8 @@ class _EditCopounViewBodyState extends State<EditCopounViewBody> {
             ),
             SizedBox(height: 10),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Copoun Code',
               onChanged: (value) {},
               textEditingController: TextEditingController(text: 'Sale2023'),

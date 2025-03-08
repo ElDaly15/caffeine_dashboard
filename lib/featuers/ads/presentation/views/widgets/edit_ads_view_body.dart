@@ -14,6 +14,8 @@ class EditAdsViewBody extends StatelessWidget {
         children: [
           const SizedBox(height: 20),
           CustomEditTextField(
+            maxlines: 1,
+
             title: 'Title',
             onChanged: (value) {},
             textEditingController: TextEditingController(text: 'Sale Ads #01'),
@@ -21,6 +23,8 @@ class EditAdsViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           CustomEditTextField(
+            maxlines: 1,
+
             title: 'Link Url',
             onChanged: (value) {},
             textEditingController: TextEditingController(

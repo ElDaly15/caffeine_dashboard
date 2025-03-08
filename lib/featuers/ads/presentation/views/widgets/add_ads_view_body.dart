@@ -24,12 +24,15 @@ class _AddAdsViewBodyState extends State<AddAdsViewBody> {
           children: [
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
               title: 'Title',
               onChanged: (value) {},
               textInputType: TextInputType.text,
             ),
             const SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Link Url',
               onChanged: (value) {},
               textInputType: TextInputType.text,

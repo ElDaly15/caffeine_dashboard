@@ -1,8 +1,12 @@
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_product_by_code/get_product_by_code_cubit.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_products/get_products_cubit.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/update_product/update_product_cubit.dart';
 import 'package:caffeine_dashboard/firebase_options.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,11 +24,18 @@ class CaffeineDashboardApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      home: HomeView(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => GetProductsCubit()..getProducts()),
+        BlocProvider(create: (context) => GetProductByCodeCubit()),
+        BlocProvider(create: (context) => UpdateProductCubit()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        home: HomeView(),
+      ),
     );
   }
 }

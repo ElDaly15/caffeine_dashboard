@@ -26,12 +26,16 @@ class _AddCopounViewBodyState extends State<AddCopounViewBody> {
           children: [
             SizedBox(height: 20),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Copoun Title',
               onChanged: (value) {},
               textInputType: TextInputType.text,
             ),
             SizedBox(height: 10),
             CustomEditTextField(
+              maxlines: 1,
+
               title: 'Copoun Code',
               onChanged: (value) {},
               textInputType: TextInputType.text,

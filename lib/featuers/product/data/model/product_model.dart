@@ -41,7 +41,7 @@ class ProductModel {
     productImage: json['productImage'] as String,
     productCategory: json['productCategory'] as String,
     productInfo: json['productInfo'] as String,
-    favIds: json['favIds'] as List<String>,
+    favIds: List<String>.from(json['favIds']),
     rating: json['rating'] as double,
     ratingCount: json['ratingCount'] as int,
     ratingUserModel: List<RatingUserModel>.from(

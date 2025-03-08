@@ -19,6 +19,10 @@ class GetProductByCodeCubit extends Cubit<GetProductByCodeState> {
           .limit(1)
           .snapshots()
           .listen((querySnapshot) {
+            if (querySnapshot.docs.isEmpty) {
+              return;
+            }
+
             products =
                 querySnapshot.docs
                     .map((doc) => ProductModel.fromJson(doc.data()))
@@ -27,7 +31,7 @@ class GetProductByCodeCubit extends Cubit<GetProductByCodeState> {
             emit(GetProductsByCodeSuccess(productModel: products[0]));
           });
     } catch (e) {
-      emit(GetProductsByCodeFailuer(error: 'An error occurred , Try again'));
+      emit(GetProductsByCodeFailuer(error: 'An error occurred, Try again'));
     }
   }
 }

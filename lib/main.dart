@@ -1,6 +1,8 @@
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/delete_product/delete_product_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_product_by_code/get_product_by_code_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_products/get_products_cubit.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/search_products_cubit/search_products_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/update_product/update_product_cubit.dart';
 import 'package:caffeine_dashboard/firebase_options.dart';
 import 'package:device_preview/device_preview.dart';
@@ -29,6 +31,8 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(create: (context) => GetProductsCubit()..getProducts()),
         BlocProvider(create: (context) => GetProductByCodeCubit()),
         BlocProvider(create: (context) => UpdateProductCubit()),
+        BlocProvider(create: (context) => SearchProductsCubit()),
+        BlocProvider(create: (context) => DeleteProductCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

@@ -28,16 +28,11 @@ class ProductItem extends StatelessWidget {
             child: CachedNetworkImage(
               placeholder:
                   (context, url) => const Center(
-                    child: CircularProgressIndicator(
-                      color: AppColors.mainColorTheme,
-                    ),
+                    child: CircularProgressIndicator(color: Colors.white),
                   ),
               errorWidget:
-                  (context, url, error) => const Icon(
-                    Icons.error,
-                    size: 40,
-                    color: AppColors.mainColorTheme,
-                  ),
+                  (context, url, error) =>
+                      const Icon(Icons.error, size: 40, color: Colors.white),
               imageUrl: productModel.productImage,
               width: 50,
               fit: BoxFit.cover,

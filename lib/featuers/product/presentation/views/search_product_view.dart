@@ -1,7 +1,9 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/product/presentation/manager/search_products_cubit/search_products_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/views/widgets/search_products_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
 class SearchProductView extends StatefulWidget {
@@ -13,6 +15,7 @@ class SearchProductView extends StatefulWidget {
 
 class _SearchProductViewState extends State<SearchProductView> {
   final FocusNode focusNode = FocusNode();
+  String? searchValue;
   @override
   void initState() {
     super.initState();
@@ -51,7 +54,15 @@ class _SearchProductViewState extends State<SearchProductView> {
           ),
           child: TextField(
             focusNode: focusNode,
-            onChanged: (value) {},
+            onChanged: (value) {
+              BlocProvider.of<SearchProductsCubit>(
+                context,
+              ).searchProducts(searchValue: value);
+
+              setState(() {
+                searchValue = value;
+              });
+            },
             cursorColor: AppColors.mainColorTheme,
             decoration: InputDecoration(
               border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -66,7 +77,7 @@ class _SearchProductViewState extends State<SearchProductView> {
           ),
         ),
       ),
-      body: const SearchProductsViewBody(),
+      body: SearchProductsViewBody(searchValue: searchValue ?? ''),
     );
   }
 }

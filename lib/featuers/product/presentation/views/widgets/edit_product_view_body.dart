@@ -183,8 +183,7 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
                 BlocProvider.of<UpdateProductCubit>(context).updateProduct(
                   code: widget.productModel.productCode,
                   productNameAr:
-                      productDescriptionAr ??
-                      widget.productModel.productDescriptionAr,
+                      productNameAr ?? widget.productModel.productNameAr,
                   productNameEn:
                       productNameEn ?? widget.productModel.productNameEn,
                   productDescriptionAr:

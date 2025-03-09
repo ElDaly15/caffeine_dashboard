@@ -36,7 +36,9 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
       productCategory,
       productImage,
       productInfo,
-      productPrice,
+      productPriceS,
+      productPriceM,
+      productPriceL,
       productCode;
   @override
   Widget build(BuildContext context) {
@@ -102,12 +104,39 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
             CustomEditTextField(
               maxlines: 1,
 
-              title: 'Product Price',
+              title: 'Product Price [S]',
               onChanged: (value) {
-                productPrice = value;
+                productPriceS = value;
               },
               textEditingController: TextEditingController(
-                text: widget.productModel.productPrice,
+                text: widget.productModel.productPriceS,
+              ),
+              textInputType: TextInputType.number,
+            ),
+            const SizedBox(height: 20),
+
+            CustomEditTextField(
+              maxlines: 1,
+
+              title: 'Product Price [M]',
+              onChanged: (value) {
+                productPriceM = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productPriceM,
+              ),
+              textInputType: TextInputType.number,
+            ),
+            const SizedBox(height: 20),
+            CustomEditTextField(
+              maxlines: 1,
+
+              title: 'Product Price [L]',
+              onChanged: (value) {
+                productPriceL = value;
+              },
+              textEditingController: TextEditingController(
+                text: widget.productModel.productPriceL,
               ),
               textInputType: TextInputType.number,
             ),
@@ -197,8 +226,12 @@ class _EditProductViewBodyState extends State<EditProductViewBody> {
                   productImage:
                       productImage ?? widget.productModel.productImage,
                   productInfo: info ?? widget.productModel.productInfo,
-                  productPrice:
-                      productPrice ?? widget.productModel.productPrice,
+                  productPriceS:
+                      productPriceS ?? widget.productModel.productPriceS,
+                  productPriceM:
+                      productPriceM ?? widget.productModel.productPriceM,
+                  productPriceL:
+                      productPriceL ?? widget.productModel.productPriceL,
                   productCode: productCode ?? widget.productModel.productCode,
                 );
               },

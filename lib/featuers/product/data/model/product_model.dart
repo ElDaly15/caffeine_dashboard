@@ -5,7 +5,9 @@ class ProductModel {
   final String productNameAr;
   final String productDescriptionEn;
   final String productDescriptionAr;
-  final String productPrice;
+  final String productPriceS;
+  final String productPriceM;
+  final String productPriceL;
   final String productCode;
   final String productImage;
   final String productCategory;
@@ -20,7 +22,9 @@ class ProductModel {
     required this.productNameAr,
     required this.productDescriptionEn,
     required this.productDescriptionAr,
-    required this.productPrice,
+    required this.productPriceS,
+    required this.productPriceM,
+    required this.productPriceL,
     required this.productCode,
     required this.productImage,
     required this.productCategory,
@@ -36,7 +40,9 @@ class ProductModel {
     productNameAr: json['productNameAr'] as String,
     productDescriptionEn: json['productDescriptionEn'] as String,
     productDescriptionAr: json['productDescriptionAr'] as String,
-    productPrice: json['productPrice'] as String,
+    productPriceS: json['productPriceS'] as String,
+    productPriceM: json['productPriceM'] as String,
+    productPriceL: json['productPriceL'] as String,
     productCode: json['productCode'] as String,
     productImage: json['productImage'] as String,
     productCategory: json['productCategory'] as String,
@@ -54,7 +60,9 @@ class ProductModel {
     'productNameAr': productNameAr,
     'productDescriptionEn': productDescriptionEn,
     'productDescriptionAr': productDescriptionAr,
-    'productPrice': productPrice,
+    'productPriceS': productPriceS,
+    'productPriceM': productPriceM,
+    'productPriceL': productPriceL,
     'productCode': productCode,
     'productImage': productImage,
     'productCategory': productCategory,

@@ -34,7 +34,9 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
       productNameEn,
       productDescriptionAr,
       productDescriptionEn,
-      productPrice,
+      productPriceS,
+      productPriceM,
+      productPriceL,
       productCode,
       productImage;
 
@@ -100,9 +102,31 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
               CustomEditTextField(
                 maxlines: 1,
 
-                title: 'Product Price',
+                title: 'Product Price [S]',
                 onChanged: (value) {
-                  productPrice = value;
+                  productPriceS = value;
+                },
+                textEditingController: TextEditingController(),
+                textInputType: TextInputType.number,
+              ),
+              const SizedBox(height: 20),
+              CustomEditTextField(
+                maxlines: 1,
+
+                title: 'Product Price [M]',
+                onChanged: (value) {
+                  productPriceM = value;
+                },
+                textEditingController: TextEditingController(),
+                textInputType: TextInputType.number,
+              ),
+              const SizedBox(height: 20),
+              CustomEditTextField(
+                maxlines: 1,
+
+                title: 'Product Price [L]',
+                onChanged: (value) {
+                  productPriceL = value;
                 },
                 textEditingController: TextEditingController(),
                 textInputType: TextInputType.number,
@@ -216,7 +240,9 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                         productNameAr: productNameAr!,
                         productDescriptionEn: productDescriptionEn!,
                         productDescriptionAr: productDescriptionAr!,
-                        productPrice: productPrice!,
+                        productPriceS: productPriceS!,
+                        productPriceM: productPriceM!,
+                        productPriceL: productPriceL!,
                         productCode: productCode!,
                         productImage: productImage!,
                         productCategory: selectedCategory!,

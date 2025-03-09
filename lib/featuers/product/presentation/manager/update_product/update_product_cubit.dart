@@ -15,7 +15,9 @@ class UpdateProductCubit extends Cubit<UpdateProductState> {
     required String productCategory,
     required String productImage,
     required String productInfo,
-    required String productPrice,
+    required String productPriceS,
+    required String productPriceM,
+    required String productPriceL,
     required String productCode,
   }) async {
     try {
@@ -40,7 +42,9 @@ class UpdateProductCubit extends Cubit<UpdateProductState> {
             'productCategory': productCategory,
             'productImage': productImage,
             'productInfo': productInfo,
-            'productPrice': productPrice,
+            'productPriceS': productPriceS,
+            'productPriceM': productPriceM,
+            'productPriceL': productPriceL,
             'productCode': productCode,
           })
           .then((_) => emit(UpdateProductSuccess()))

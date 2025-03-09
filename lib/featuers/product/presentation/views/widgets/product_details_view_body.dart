@@ -93,7 +93,27 @@ class ProductDetailsViewBody extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 22),
           sliver: SliverToBoxAdapter(
             child: CustomCotnainerOfUserInfo(
-              title: '${productModel.productPrice} L.E ',
+              title: '${productModel.productPriceS} L.E [Small]',
+              iconData: IconlyLight.wallet,
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(child: SizedBox(height: 10)),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          sliver: SliverToBoxAdapter(
+            child: CustomCotnainerOfUserInfo(
+              title: '${productModel.productPriceM} L.E [Medium]',
+              iconData: IconlyLight.wallet,
+            ),
+          ),
+        ),
+        SliverToBoxAdapter(child: SizedBox(height: 10)),
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 22),
+          sliver: SliverToBoxAdapter(
+            child: CustomCotnainerOfUserInfo(
+              title: '${productModel.productPriceL} L.E [Large]',
               iconData: IconlyLight.wallet,
             ),
           ),
@@ -119,6 +139,7 @@ class ProductDetailsViewBody extends StatelessWidget {
             ),
           ),
         ),
+
         SliverToBoxAdapter(child: SizedBox(height: 10)),
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 22),

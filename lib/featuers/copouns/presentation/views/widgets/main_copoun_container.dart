@@ -1,5 +1,6 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/copouns/data/model/coupon_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -9,8 +10,10 @@ class MainCopounContainer extends StatelessWidget {
     super.key,
     required this.onTapDelete,
     required this.onTapEdit,
+    required this.couponModel,
   });
   final void Function() onTapDelete, onTapEdit;
+  final CouponModel couponModel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,21 +45,21 @@ class MainCopounContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'November 2022',
+                  couponModel.copounTitle,
                   style: TextStyles.font18SemiBold(
                     context,
                   ).copyWith(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  'Caffe25X',
+                  couponModel.copounCode,
                   style: TextStyles.font14Medium(
                     context,
                   ).copyWith(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  '20 % Off',
+                  '${(couponModel.copounValue * 100).toInt()}% Off',
                   style: TextStyles.font14Medium(
                     context,
                   ).copyWith(color: Colors.white),

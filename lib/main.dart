@@ -3,6 +3,9 @@ import 'package:caffeine_dashboard/featuers/ads/presentation/manager/delete_ads/
 import 'package:caffeine_dashboard/featuers/ads/presentation/manager/get_ad_by_id/get_ad_by_id_cubit.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/manager/get_ads/get_ads_cubit.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/manager/update_ads/update_ads_cubit.dart';
+import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/delete_copoun/delete_copoun_cubit.dart';
+import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/edit_copoun/edit_copoun_cubit.dart';
+import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/manage_copouns/manage_copouns_cubit.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/delete_product/delete_product_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_product_by_code/get_product_by_code_cubit.dart';
@@ -43,6 +46,9 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(create: (context) => GetAdByIdCubit()),
         BlocProvider(create: (context) => UpdateAdsCubit()),
         BlocProvider(create: (context) => DeleteAdsCubit()),
+        BlocProvider(create: (context) => ManageCopounsCubit()..getCopouns()),
+        BlocProvider(create: (context) => DeleteCopounCubit()),
+        BlocProvider(create: (context) => EditCopounCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

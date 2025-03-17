@@ -52,14 +52,14 @@ class MainCopounContainer extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  couponModel.copounCode,
+                  '${couponModel.copounCode} , ${couponModel.users.length} users',
                   style: TextStyles.font14Medium(
                     context,
                   ).copyWith(color: Colors.white),
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
-                  '${(couponModel.copounValue * 100).toInt()}% Off',
+                  '${(couponModel.copounValue * 100).toInt()}% Off ${couponModel.isExpired ? '(Expired)' : ''}',
                   style: TextStyles.font14Medium(
                     context,
                   ).copyWith(color: Colors.white),

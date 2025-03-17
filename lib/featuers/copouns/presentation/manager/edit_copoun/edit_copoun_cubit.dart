@@ -27,6 +27,7 @@ class EditCopounCubit extends Cubit<EditCopounState> {
             'copounTitle': copounModel.copounTitle,
             'copounCode': copounModel.copounCode,
             'copounValue': copounModel.copounValue,
+            'isExpired': copounModel.isExpired,
           })
           .then((_) => emit(EditCopounSuccess()))
           .catchError((error) => emit(EditCopounFailuer()));

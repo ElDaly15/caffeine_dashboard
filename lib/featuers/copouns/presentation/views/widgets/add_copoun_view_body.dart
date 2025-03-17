@@ -115,6 +115,8 @@ class _AddCopounViewBodyState extends State<AddCopounViewBody> {
                   var uuid = Uuid();
                   CouponModel couponModel = CouponModel(
                     copounTitle: title!,
+                    users: [],
+                    isExpired: false,
                     copounCode: code!,
 
                     id: uuid.v4(),

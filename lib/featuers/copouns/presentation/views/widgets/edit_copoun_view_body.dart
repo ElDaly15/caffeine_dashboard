@@ -1,3 +1,5 @@
+import 'package:caffeine_dashboard/core/utils/app_colors.dart';
+import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:caffeine_dashboard/core/widgets/buttoms/big_elevated_btm_with_icon.dart';
 import 'package:caffeine_dashboard/core/widgets/fields/custom_edit_text_field.dart';
 import 'package:caffeine_dashboard/featuers/copouns/data/model/coupon_model.dart';
@@ -25,6 +27,7 @@ class _EditCopounViewBodyState extends State<EditCopounViewBody> {
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Form(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),
             CustomEditTextField(
@@ -51,6 +54,23 @@ class _EditCopounViewBodyState extends State<EditCopounViewBody> {
                 text: code ?? widget.couponModel.copounCode,
               ),
               textInputType: TextInputType.text,
+            ),
+            SizedBox(height: 10),
+            Row(
+              children: [
+                Text('Expired ?', style: TextStyles.font20SemiBold(context)),
+                Spacer(),
+                Switch(
+                  value: widget.couponModel.isExpired,
+                  hoverColor: AppColors.mainColorTheme,
+                  activeColor: AppColors.mainColorTheme,
+                  onChanged: (value) {
+                    setState(() {
+                      widget.couponModel.isExpired = value;
+                    });
+                  },
+                ),
+              ],
             ),
             SizedBox(height: 10),
             Row(

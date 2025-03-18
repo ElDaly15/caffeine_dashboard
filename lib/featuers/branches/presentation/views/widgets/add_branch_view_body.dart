@@ -11,10 +11,10 @@ class AddBranchViewBody extends StatefulWidget {
   const AddBranchViewBody({super.key});
 
   @override
-  State<AddBranchViewBody> createState() => _AddNotificationViewBodyState();
+  State<AddBranchViewBody> createState() => _AddBranchViewBodyState();
 }
 
-class _AddNotificationViewBodyState extends State<AddBranchViewBody> {
+class _AddBranchViewBodyState extends State<AddBranchViewBody> {
   final _formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 

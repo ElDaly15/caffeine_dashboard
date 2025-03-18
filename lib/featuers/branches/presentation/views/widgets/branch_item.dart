@@ -1,12 +1,19 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/branches/data/models/branch_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
 class BranchItem extends StatelessWidget {
-  const BranchItem({super.key, required this.onDelete, required this.onEdit});
+  const BranchItem({
+    super.key,
+    required this.onDelete,
+    required this.onEdit,
+    required this.branchModel,
+  });
   final void Function()? onDelete;
   final void Function()? onEdit;
+  final BranchModel branchModel;
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +44,14 @@ class BranchItem extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Maadi Branch',
+                      branchModel.branchnameEn,
                       style: TextStyles.font20SemiBold(context).copyWith(),
                     ),
                     Spacer(),
                   ],
                 ),
                 Text(
-                  'Maddi , Steet 9 - Behind Bank of Cairo , Egypt',
+                  '${branchModel.streetEn} , ${branchModel.cityEn} , ${branchModel.countryEn}',
                   style: TextStyles.font18Regular(context).copyWith(),
 
                   maxLines: null,

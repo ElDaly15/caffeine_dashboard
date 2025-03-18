@@ -1,5 +1,7 @@
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/add_ads_view.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/ads_view.dart';
+import 'package:caffeine_dashboard/featuers/branches/presentation/views/add_branch_view.dart';
+import 'package:caffeine_dashboard/featuers/branches/presentation/views/branches_view.dart';
 import 'package:caffeine_dashboard/featuers/copouns/presentation/views/add_copoun_view.dart';
 import 'package:caffeine_dashboard/featuers/copouns/presentation/views/copoun_view.dart';
 import 'package:caffeine_dashboard/featuers/home/data/models/dashboard_main_cotnainer_model.dart';
@@ -73,6 +75,16 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
       title: 'Add Coupon',
       icon: IconlyBold.plus,
       screen: AddCopounView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Branches',
+      icon: Icons.coffee_rounded,
+      screen: BranchesView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Branch',
+      icon: IconlyBold.plus,
+      screen: AddBranchView(),
     ),
   ];
 

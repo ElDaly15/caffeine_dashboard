@@ -43,9 +43,13 @@ class BranchItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(
-                      branchModel.branchnameEn,
-                      style: TextStyles.font20SemiBold(context).copyWith(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Text(
+                        branchModel.branchnameEn,
+                        style: TextStyles.font20SemiBold(context).copyWith(),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Spacer(),
                   ],

@@ -44,9 +44,13 @@ class ContainerOfNotificationItem extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(
-                      'Notification Title',
-                      style: TextStyles.font20SemiBold(context).copyWith(),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Text(
+                        'Notification Title ',
+                        style: TextStyles.font20SemiBold(context).copyWith(),
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     Spacer(),
                   ],

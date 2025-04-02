@@ -13,7 +13,7 @@ class ProductModel {
   final String productCategory;
   final String productInfo;
   final List<String> favIds;
-  final double rating;
+  final dynamic rating;
   final int ratingCount;
   final List<RatingUserModel> ratingUserModel;
 
@@ -48,7 +48,7 @@ class ProductModel {
     productCategory: json['productCategory'] as String,
     productInfo: json['productInfo'] as String,
     favIds: List<String>.from(json['favIds']),
-    rating: json['rating'] as double,
+    rating: json['rating'] as dynamic,
     ratingCount: json['ratingCount'] as int,
     ratingUserModel: List<RatingUserModel>.from(
       json['ratingsUserModel'].map((x) => RatingUserModel.fromJson(x)),

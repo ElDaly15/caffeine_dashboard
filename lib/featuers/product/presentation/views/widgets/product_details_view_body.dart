@@ -5,6 +5,7 @@ import 'package:caffeine_dashboard/featuers/product/presentation/views/widgets/c
 import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/container_of_user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
+import 'package:intl/intl.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key, required this.productModel});
@@ -131,10 +132,11 @@ class ProductDetailsViewBody extends StatelessWidget {
         SliverToBoxAdapter(child: SizedBox(height: 10)),
         SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 22),
+
           sliver: SliverToBoxAdapter(
             child: CustomCotnainerOfUserInfo(
               title:
-                  '${productModel.rating} (${productModel.ratingCount} Ratings)',
+                  '${NumberFormat("#.#").format(productModel.rating / productModel.ratingCount)} (${productModel.ratingCount} Ratings)',
               iconData: IconlyBold.star,
             ),
           ),

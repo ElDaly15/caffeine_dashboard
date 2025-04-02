@@ -44,6 +44,7 @@ dependencies:
   flutter_native_splash: ^2.4.5
   font_awesome_flutter: ^10.8.0
   iconly: ^1.0.1
+  intl: ^0.20.2
   meta: ^1.16.0
   modal_progress_hud_nsn: ^0.5.1
   uuid: ^4.5.1

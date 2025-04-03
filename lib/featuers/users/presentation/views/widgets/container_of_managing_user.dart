@@ -23,13 +23,13 @@ class ContainerOfManageUserDeleteOrBan extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(iconData, color: Colors.white, size: 30),
-            SizedBox(height: 10),
+            Icon(iconData, color: Colors.white, size: 20),
+            SizedBox(width: 5),
             FittedBox(
               fit: BoxFit.scaleDown,
               child: Text(
                 title,
-                style: TextStyles.font20SemiBold(
+                style: TextStyles.font18Medium(
                   context,
                 ).copyWith(color: Colors.white),
                 textAlign: TextAlign.center,

@@ -121,23 +121,6 @@ class _ManagerUserViewBodyState extends State<ManagerUserViewBody> {
 
                       return Row(
                         children: [
-                          ContainerOfManageUserDeleteOrBan(
-                            title: 'Delete User',
-                            iconData: IconlyBold.delete,
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return DeleteConfirmDialog(
-                                    title: 'Delete',
-                                    onConfirm: () {},
-                                  );
-                                },
-                              );
-                            },
-                          ),
-                          SizedBox(width: 10),
-
                           isBanned
                               ? ContainerOfManageUserDeleteOrBan(
                                 title: 'Unban User',

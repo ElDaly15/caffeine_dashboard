@@ -1,7 +1,9 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/manager/search_user/search_user_cubit.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 
 class SearchView extends StatefulWidget {
@@ -13,6 +15,8 @@ class SearchView extends StatefulWidget {
 
 class _SearchViewState extends State<SearchView> {
   final FocusNode focusNode = FocusNode();
+  String? searchValue;
+
   @override
   void initState() {
     super.initState();
@@ -51,7 +55,14 @@ class _SearchViewState extends State<SearchView> {
           ),
           child: TextField(
             focusNode: focusNode,
-            onChanged: (value) {},
+            onChanged: (value) {
+              setState(() {
+                searchValue = value;
+              });
+              BlocProvider.of<SearchUserCubit>(
+                context,
+              ).searchUsers(searchValue: value);
+            },
             cursorColor: AppColors.mainColorTheme,
             decoration: InputDecoration(
               border: OutlineInputBorder(borderSide: BorderSide.none),
@@ -66,7 +77,7 @@ class _SearchViewState extends State<SearchView> {
           ),
         ),
       ),
-      body: const SearchViewBody(),
+      body: SearchViewBody(searchValue: searchValue ?? ''),
     );
   }
 }

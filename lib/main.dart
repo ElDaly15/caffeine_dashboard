@@ -16,6 +16,10 @@ import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_pro
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_products/get_products_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/search_products_cubit/search_products_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/update_product/update_product_cubit.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/manager/ban_user/ban_user_cubit.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/manager/get_user_data/get_user_data_cubit.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/manager/get_users/get_users_cubit.dart';
+import 'package:caffeine_dashboard/featuers/users/presentation/manager/search_user/search_user_cubit.dart';
 import 'package:caffeine_dashboard/firebase_options.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -57,6 +61,10 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(create: (context) => GetBranchesCubit()..getBranches()),
         BlocProvider(create: (context) => EditBranchCubit()),
         BlocProvider(create: (context) => DeleteBranchCubit()),
+        BlocProvider(create: (context) => GetUsersCubit()..getUsers()),
+        BlocProvider(create: (context) => GetUserDataCubit()),
+        BlocProvider(create: (context) => SearchUserCubit()),
+        BlocProvider(create: (context) => BanUserCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

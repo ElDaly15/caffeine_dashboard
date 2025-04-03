@@ -33,6 +33,7 @@ dependencies:
   cached_network_image: ^3.4.1
   cloud_firestore: ^5.6.5
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
   device_preview: ^1.2.0
   dropdown_button2: ^2.3.9
   firebase_core: ^3.12.1
@@ -44,7 +45,7 @@ dependencies:
   flutter_native_splash: ^2.4.5
   font_awesome_flutter: ^10.8.0
   iconly: ^1.0.1
-  intl: ^0.20.2
+  intl: 0.19.0
   meta: ^1.16.0
   modal_progress_hud_nsn: ^0.5.1
   uuid: ^4.5.1

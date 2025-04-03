@@ -3,8 +3,13 @@ import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class DeleteConfirmDialog extends StatefulWidget {
-  const DeleteConfirmDialog({super.key, required this.title});
+  const DeleteConfirmDialog({
+    super.key,
+    required this.title,
+    required this.onConfirm,
+  });
   final String title;
+  final void Function() onConfirm;
   @override
   State<DeleteConfirmDialog> createState() => _DeleteConfirmDialogState();
 }
@@ -59,9 +64,7 @@ class _DeleteConfirmDialogState extends State<DeleteConfirmDialog> {
                       ),
                       backgroundColor: Colors.red,
                     ),
-                    onPressed: () async {
-                      Navigator.of(context).pop();
-                    },
+                    onPressed: widget.onConfirm,
                     child: Text(
                       '${widget.title} User',
                       style: TextStyles.font14Medium(

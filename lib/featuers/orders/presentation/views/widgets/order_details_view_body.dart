@@ -1,6 +1,7 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/manager/get_order_by_id/get_order_by_id_cubit.dart';
+import 'package:caffeine_dashboard/featuers/orders/presentation/manager/update_order_status/update_order_status_cubit.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/views/widgets/manage_order_container.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/views/widgets/sliver_of_sub_orders_item.dart';
 import 'package:caffeine_dashboard/featuers/users/presentation/views/widgets/container_of_user_info.dart';
@@ -95,6 +96,20 @@ class _OrderDetailsViewBodyState extends State<OrderDetailsViewBody> {
                   ),
                 ),
               ),
+              state.orderModel.note != ''
+                  ? SliverToBoxAdapter(child: SizedBox(height: 10))
+                  : SliverToBoxAdapter(),
+              state.orderModel.note != ''
+                  ? SliverPadding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    sliver: SliverToBoxAdapter(
+                      child: CustomCotnainerOfUserInfo(
+                        title: 'Note : ${state.orderModel.note}',
+                        iconData: IconlyLight.edit_square,
+                      ),
+                    ),
+                  )
+                  : SliverToBoxAdapter(),
               SliverToBoxAdapter(child: SizedBox(height: 20)),
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
@@ -120,58 +135,156 @@ class _OrderDetailsViewBodyState extends State<OrderDetailsViewBody> {
               SliverPadding(
                 padding: const EdgeInsets.symmetric(horizontal: 22),
                 sliver: SliverToBoxAdapter(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: ManageOrderContainer(
-                          isActive: index == 0,
-                          title: 'Pending',
-                          onTap: () {
-                            setState(() {
-                              index = 0;
-                            });
-                          },
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      Expanded(
-                        child: ManageOrderContainer(
-                          onTap: () {
-                            setState(() {
-                              index = 1;
-                            });
-                          },
-                          isActive: index == 1,
-                          title: 'Out For Delivery',
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      Expanded(
-                        child: ManageOrderContainer(
-                          onTap: () {
-                            setState(() {
-                              index = 2;
-                            });
-                          },
-                          isActive: index == 2,
-                          title: 'Delivered',
-                        ),
-                      ),
-                      SizedBox(width: 5),
-                      Expanded(
-                        child: ManageOrderContainer(
-                          onTap: () {
-                            setState(() {
-                              index = 3;
-                            });
-                          },
-                          isActive: index == 3,
-                          title: 'Cancelled',
-                        ),
-                      ),
-                    ],
-                  ),
+                  child:
+                      state.orderModel.orderedBy == 'Delivery'
+                          ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  isActive: state.orderModel.stepperValue == 0,
+                                  title: 'Pending',
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: 0,
+                                      statusOfOrder: 'Pending',
+                                    );
+                                    setState(() {
+                                      index = 0;
+                                    });
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: 2,
+                                      statusOfOrder: 'On The Way',
+                                    );
+                                    setState(() {
+                                      index = 1;
+                                    });
+                                  },
+                                  isActive: state.orderModel.stepperValue == 2,
+                                  title: 'Out For Delivery',
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: 3,
+                                      statusOfOrder: 'Delivered ',
+                                    );
+                                    setState(() {
+                                      index = 2;
+                                    });
+                                  },
+                                  isActive: state.orderModel.stepperValue == 3,
+                                  title: 'Delivered',
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: -1,
+                                      statusOfOrder: 'Cancelled',
+                                    );
+                                    setState(() {
+                                      index = 3;
+                                    });
+                                  },
+                                  isActive: state.orderModel.stepperValue == -1,
+                                  title: 'Cancelled',
+                                ),
+                              ),
+                            ],
+                          )
+                          : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  isActive: state.orderModel.stepperValue == 0,
+                                  title: 'Pending',
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: 0,
+                                      statusOfOrder: 'Pending',
+                                    );
+                                    setState(() {
+                                      index = 0;
+                                    });
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  isActive: state.orderModel.stepperValue == 3,
+                                  title: 'Delivered',
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: 3,
+                                      statusOfOrder: 'Delivered',
+                                    );
+                                    setState(() {
+                                      index = 0;
+                                    });
+                                  },
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Expanded(
+                                child: ManageOrderContainer(
+                                  isActive: state.orderModel.stepperValue == -1,
+                                  title: 'Cancelled',
+                                  onTap: () {
+                                    BlocProvider.of<UpdateOrderStatusCubit>(
+                                      context,
+                                    ).updateOrderStatus(
+                                      orderId: state.orderModel.orderId,
+                                      userId: state.orderModel.userId,
+                                      step: -1,
+                                      statusOfOrder: 'Cancelled',
+                                    );
+                                    setState(() {
+                                      index = 0;
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
                 ),
               ),
               SliverToBoxAdapter(child: SizedBox(height: 20)),

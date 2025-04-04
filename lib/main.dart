@@ -11,6 +11,8 @@ import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/delete_
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/edit_copoun/edit_copoun_cubit.dart';
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/manage_copouns/manage_copouns_cubit.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
+import 'package:caffeine_dashboard/featuers/orders/presentation/manager/get_order_by_id/get_order_by_id_cubit.dart';
+import 'package:caffeine_dashboard/featuers/orders/presentation/manager/get_orders/get_orders_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/delete_product/delete_product_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_product_by_code/get_product_by_code_cubit.dart';
 import 'package:caffeine_dashboard/featuers/product/presentation/manager/get_products/get_products_cubit.dart';
@@ -65,6 +67,8 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(create: (context) => GetUserDataCubit()),
         BlocProvider(create: (context) => SearchUserCubit()),
         BlocProvider(create: (context) => BanUserCubit()),
+        BlocProvider(create: (context) => GetOrdersCubit()..getOrders()),
+        BlocProvider(create: (context) => GetOrderByIdCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

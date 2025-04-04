@@ -8,7 +8,9 @@ class SearchMainOrdersViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
-      child: CustomScrollView(slivers: [SliverListOfMainOrdersItems()]),
+      child: CustomScrollView(
+        slivers: [SliverListOfMainOrdersItems(orders: [])],
+      ),
     );
   }
 }

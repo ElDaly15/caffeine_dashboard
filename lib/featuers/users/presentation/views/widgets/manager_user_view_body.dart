@@ -49,14 +49,14 @@ class _ManagerUserViewBodyState extends State<ManagerUserViewBody> {
                         placeholder:
                             (context, url) => const Center(
                               child: CircularProgressIndicator(
-                                color: Colors.white,
+                                color: AppColors.mainColorTheme,
                               ),
                             ),
                         errorWidget:
                             (context, url, error) => const Icon(
                               Icons.error,
                               size: 40,
-                              color: Colors.white,
+                              color: AppColors.mainColorTheme,
                             ),
                         imageUrl: state.userModel.image,
                         width: 130,

@@ -11,6 +11,9 @@ import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/delete_
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/edit_copoun/edit_copoun_cubit.dart';
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/manage_copouns/manage_copouns_cubit.dart';
 import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
+import 'package:caffeine_dashboard/featuers/notification/presentation/manager/get_notification_cubit/get_notifications_cubit.dart';
+import 'package:caffeine_dashboard/featuers/notification/presentation/manager/manage_notification/manage_notification_cubit.dart';
+import 'package:caffeine_dashboard/featuers/notification/presentation/manager/send_notification_to_all_users/send_notification_to_all_users_cubit.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/manager/get_order_by_id/get_order_by_id_cubit.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/manager/get_orders/get_orders_cubit.dart';
 import 'package:caffeine_dashboard/featuers/orders/presentation/manager/update_order_status/update_order_status_cubit.dart';
@@ -71,6 +74,12 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(create: (context) => GetOrdersCubit()..getOrders()),
         BlocProvider(create: (context) => GetOrderByIdCubit()),
         BlocProvider(create: (context) => UpdateOrderStatusCubit()),
+        BlocProvider(create: (context) => SendNotificationToAllUsersCubit()),
+        BlocProvider(create: (context) => ManageNotificationCubit()),
+
+        BlocProvider(
+          create: (context) => GetNotificationsCubit()..getNotifications(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

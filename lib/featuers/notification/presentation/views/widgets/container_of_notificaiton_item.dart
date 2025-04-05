@@ -1,5 +1,6 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart';
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
+import 'package:caffeine_dashboard/featuers/notification/data/models/notification_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -8,9 +9,11 @@ class ContainerOfNotificationItem extends StatelessWidget {
     super.key,
     required this.onDelete,
     required this.onEdit,
+    required this.notificationModel,
   });
   final void Function()? onDelete;
   final void Function()? onEdit;
+  final NotificationModel notificationModel;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class ContainerOfNotificationItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.4,
                       child: Text(
-                        'Notification Title ',
+                        notificationModel.titleEn,
                         style: TextStyles.font20SemiBold(context).copyWith(),
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -56,7 +59,7 @@ class ContainerOfNotificationItem extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  'New Sale For Caffe Latte , Now In Maadi , Heilioples go to get it now',
+                  notificationModel.bodyEn,
                   style: TextStyles.font18Regular(context).copyWith(),
 
                   maxLines: null,

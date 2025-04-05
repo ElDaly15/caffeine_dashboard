@@ -1,11 +1,15 @@
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:caffeine_dashboard/core/widgets/buttoms/big_elevated_btm_with_icon.dart';
 import 'package:caffeine_dashboard/core/widgets/fields/custom_edit_text_field.dart';
+import 'package:caffeine_dashboard/featuers/notification/data/models/notification_model.dart';
+import 'package:caffeine_dashboard/featuers/notification/presentation/manager/manage_notification/manage_notification_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class EditNotficationViewBody extends StatefulWidget {
-  const EditNotficationViewBody({super.key});
+  const EditNotficationViewBody({super.key, required this.notificationModel});
+  final NotificationModel notificationModel;
 
   @override
   State<EditNotficationViewBody> createState() =>
@@ -13,6 +17,7 @@ class EditNotficationViewBody extends StatefulWidget {
 }
 
 class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
+  String? titleEn, titleAr, bodyEn, bodyAr;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,8 +31,12 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
             maxlines: 1,
 
             title: 'Title [En]',
-            onChanged: (value) {},
-            textEditingController: TextEditingController(text: 'Sale On Latte'),
+            onChanged: (value) {
+              titleEn = value;
+            },
+            textEditingController: TextEditingController(
+              text: titleEn ?? widget.notificationModel.titleEn,
+            ),
             textInputType: TextInputType.text,
           ),
           const SizedBox(height: 20),
@@ -36,8 +45,12 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
             maxlines: 1,
 
             title: 'Title [Ar]',
-            onChanged: (value) {},
-            textEditingController: TextEditingController(text: 'سيل اون لاتيه'),
+            onChanged: (value) {
+              titleAr = value;
+            },
+            textEditingController: TextEditingController(
+              text: titleAr ?? widget.notificationModel.titleAr,
+            ),
             textInputType: TextInputType.text,
           ),
           const SizedBox(height: 20),
@@ -49,8 +62,12 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
             maxlines: 5,
 
             title: 'Description [En]',
-            onChanged: (value) {},
-            textEditingController: TextEditingController(text: 'Sale On Latte'),
+            onChanged: (value) {
+              bodyEn = value;
+            },
+            textEditingController: TextEditingController(
+              text: bodyEn ?? widget.notificationModel.bodyEn,
+            ),
             textInputType: TextInputType.text,
           ),
           const SizedBox(height: 20),
@@ -62,13 +79,30 @@ class _EditNotficationViewBodyState extends State<EditNotficationViewBody> {
             maxlines: 5,
 
             title: 'Description [Ar]',
-            onChanged: (value) {},
-            textEditingController: TextEditingController(text: 'مش عارف'),
+            onChanged: (value) {
+              bodyAr = value;
+            },
+            textEditingController: TextEditingController(
+              text: bodyAr ?? widget.notificationModel.bodyAr,
+            ),
             textInputType: TextInputType.text,
           ),
           const SizedBox(height: 20),
           CustomBigElevatedBtmWithIcon(
-            onPressed: () {},
+            onPressed: () {
+              widget.notificationModel.titleEn =
+                  titleEn ?? widget.notificationModel.titleEn;
+              widget.notificationModel.titleAr =
+                  titleAr ?? widget.notificationModel.titleAr;
+              widget.notificationModel.bodyEn =
+                  bodyEn ?? widget.notificationModel.bodyEn;
+              widget.notificationModel.bodyAr =
+                  bodyAr ?? widget.notificationModel.bodyAr;
+
+              BlocProvider.of<ManageNotificationCubit>(
+                context,
+              ).updateNotification(notification: widget.notificationModel);
+            },
             title: 'Save',
             iconData: FontAwesomeIcons.floppyDisk,
           ),

@@ -8,20 +8,22 @@ class PushNotificationServiceForOneUser {
   static Future<String> getAccessToken() async {
     final serviceAcountJson = {
       "type": "service_account",
-      "project_id": "demons-c7b11",
-      "private_key_id": "d1960665d34b22eee07ec0f230e4f96de8e68bb9",
+      "project_id": "caffeine-cafe-47df1",
+      "private_key_id": "86a8a8c68d42d36a33f20bb681674f0933cd6929",
       "private_key":
-          "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDEwzC+XvifSzEk\nzuRqWfDJ0cr1SUtQKz4Z1S+P/tCDegAX4yvAKorW61HW5ZBT9oXqcDoMDdmv4/qx\nu3FeREAbR0tPpD866MfMEPDPUWY53kz4SDFHu1w7/kv2l1bz3f0rTQPehevsh4r/\nNBrGgt7qvziyA+gPeF4cPoKGbE0afDv988jdwFBo8FKzf6wlOOIBa9Z6rSORVIfh\nJyhLCeU8fdkVHh0hXriisMBcZ1t35Allqztqd8enhm434PFmk2YhLLQeQM/8NEuf\nA2dLs+OvVeJzNTGux/fz8m2OflHiQMFtatw5OLyC+qbS0Pkkrdauj7UJgcUZHGSr\nEcSP8ynzAgMBAAECggEACN/UK886amt97hmQuW/mCXbiBFnHwPgPpyLzhWHqQ0vL\ng52g2bFxgqD+whunfJ9NSetsNXf4c1OWeSapmyVRON8TI/vrSCZl6yvGbgCkr4PP\nDTxVpf/AI1/kSt0SNGc05cY69ZyCWAWC/OCmO9bSOVyM25E2ibVq6ojdN9/cQw9M\nDuGjAa1ct70IRkW9g21iyhDsHyUc0eET19ZX/cwJ0EuWyh9YfPXI0Q7pkHuB8veU\n2e4kzS9FRkTSv12C8FHqSSMXOx61roWtOcaSAHUWWXLuRBZ4pqIUEVDEBpPIzLGQ\noQr6Ae1OajbgGhK2WxosCl9iPv0XOX+RQXwKgth40QKBgQD0iQcsBSYkrnXFDL5d\naB+hbYHGAh5JQhlUQybY1/qubWZAIXOXj1GmmpJbWHeZKzwaxlr7WB0Z982/fuZK\nrvrptQsLBzu9H7sTqkEDSHoHTP/7hRydKK/jJ9UqrD3pDgQfrMf6Fyt9ahljFCrK\n1VEiVlHSP0IinYaTJO0/zS1JwwKBgQDN/MgS2grqSX2n2lfz24V3ErSCeHrgzktv\nliHt4ygw57Y6VAj8zcXXBY7yLob3/7Onh73y2Kb/maC4LOkwEFau8H6H1BdSaWXL\n/Qie2J8UW9+XP6zN4N5h9c1DZxFOIG9iom39d2CMb8uSGdXDkRhx1wsB84Rl0f7A\nW0oBh7FsEQKBgQDYdwxwPUacpgr+md9SFEAbyDJes7VXqDl/y8nxno78JT+keXg3\nq9jdoGr6jX+hiRI1qW0UndV1DVWGtLDrX6Yhh+/0nTyWmCYkrEvMujW7jL/1SMoh\nnMjGTpZ2pe5QBeZEm9CSZDxNUsSSXmHbF6YwvTTE5taGied9De0u01PJvQKBgFU7\n2dXjH00ep74C3Q3ssec5eDPcgovvEMvVhaiXrBPAbWjpSObChrCYfjO8COEpjz8t\nLe4Es+Vjvls3Si43NIciwFiX7CaPsi2cQCrqW7ji4zwEfw6Zk6tZOFxBk6mORki8\nCWMuOGckA0orIobPzRud7dIa35f6Mr2JiK/lZAbhAoGBAIMTMZvgN2imrvTegrgV\nFwQOMBVVZgpZu3j2SkLjTRnwLE9q1bj5xlQspjUe1FGV7bdxs8nxAFUCTsiyPIpL\nTRhpOJDGal2nfnmz4oE4BHNs63qyeq5DbWpmpp/u7Gh7jGvxOurpvQoS14Pz0oh+\nN1tyrGOu7xeplXxw/SXLcz2U\n-----END PRIVATE KEY-----\n",
-      "client_email": "bytehive@demons-c7b11.iam.gserviceaccount.com",
-      "client_id": "115912525646103320231",
+          "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQD2e59h++V0y+xr\nJl/G+wzpkXpuEcwGN3o72mgVxsIAoo2PX2AgGZU0S+RnkA3ocjhqVH+j4vrLyGH3\nsAXM3gDMYVl2IEea9Klo2f7bdbRfEtovlGiFG0w4X4D1WDfRy52eIf2LodSYEpgn\nm7iKZpncXNNC+mcAA15eplFAbpydKDmOoAKfDUSluFySURV4z53Db32R2GxQ/ZHX\ndAg5B4oiBIg3XEamygg+J7DsGCUIcgqTB6wl6kaWvlJFM7pkljmp8jcUyaw7lw63\nAG4gIO1R0mZJWqSnOruIXRUBNE12uVh/fk3HAOVCdywDRrZJWP0qGCjYCl2Nc+Fi\n4m+2GzZxAgMBAAECggEABEpIzwhsGSKLBrRBaW8uzXpzzHUTbWjGCthoJHfkDNAy\nK/848boW7x+iizxrnOKvEXJk0dtmVN7JI2nn4fCGcvLp/xdm/lRuRfCkbK626+A3\na2msgOOa9HtnZ9h9c+b/bcm8QL55etz4/cMqZ5X2Aorxk5T+7wtqoeBdzJlYRm0h\n8QY72l28mjPeAerB6PAFjp0r3wjhK7pYniTscISVUudxyAGTzvaxtGNf3VPGXPTG\nPAcWviiHkKaoun8APCoY32bZG7OUqWCPq6r3uSsmTETFXfE40+clXbSceErKexW2\nUHs59NEehvWPz0SSb/57Rwcd/z0CqSUyi2J8aFdCmQKBgQD8pHUy+8hK4//xft1z\nQWZLYasWyLeKDHbSyk3d/F3SR3jzH23seXhz8okwCMTeaeo3PJUIMdMEtKkf4SJP\nfXySUQWVpJ6uJLhpHjEL4+U3D6rpatgjt08XN3gsfA/IrPh/rLy3twK41EfBJ7sd\ndXEi1ZN2vSPFs7ySwu0EfejwmQKBgQD5wjV2FJBN5ohMTcUedKgTta2Dh+fYCq2D\nLfrvhFnvLTGhunG8n6RyXHOlycZ+FXPkszOoTWMXA/LBo9+7Jw+L3+bqO7ayp9Vs\n7PvrI7cyw/eGSNGuxoB3fjRXo9barRPXGyRO9S9/SjrNdr2uYEpZvl3Fimij6mR7\nG38CD4KjmQKBgQDKXrHCdQyrcJbDyut4NxrJpyJ0zbK3UeScVJCrEEvW9Ildtf9H\nPMXPmqdpYpzPy+dg95YpSj/NtSkD8EKbidkPGvduNr8knyVYjmabL6GbyWEOOBeK\nBHvGDRimCXpbNLKZErTYNDBp/SC9CCZKIpjNXmcQ5dCRvLeAl8NjpbfBgQKBgEPM\nAjMhdeKPl6QO4FlaFV30TTuNItQ0YdFgI+Psq3UPcY+TStiHBV691e7FDQqgzCri\nsj0XdLSEr9r8nvjwq3mut8IRn5Bzmq3Mzr2PnmU7aO+cyL6Gx8yoB5FaujH2FZKo\nnXyJdfE5tyia+PZi0Qv3bwD2h10nfUsltZ5bk3zRAoGAJJK8jS8UAOivPZ4Ob39R\nXJk21ECThGmX1AHG2haRKsh5ii6MXXECCfUXXScEh48IceXl+TYpbns0a07E5mk2\ni4BTZbyvKE6isPIP7kQ9GXZ1OhPWGE2LDi3+XRqvKszo2rt94lOiL7IktbgsCl9e\nCxZEdRBjOE7OKmUg3hHqPXU=\n-----END PRIVATE KEY-----\n",
+      "client_email":
+          "firebase-adminsdk-fbsvc@caffeine-cafe-47df1.iam.gserviceaccount.com",
+      "client_id": "110338329884062569934",
       "auth_uri": "https://accounts.google.com/o/oauth2/auth",
       "token_uri": "https://oauth2.googleapis.com/token",
       "auth_provider_x509_cert_url":
           "https://www.googleapis.com/oauth2/v1/certs",
       "client_x509_cert_url":
-          "https://www.googleapis.com/robot/v1/metadata/x509/bytehive%40demons-c7b11.iam.gserviceaccount.com",
+          "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40caffeine-cafe-47df1.iam.gserviceaccount.com",
       "universe_domain": "googleapis.com",
     };
+
     List<String> scopes = [
       "https://www.googleapis.com/auth/userinfo.email",
       "https://www.googleapis.com/auth/firebase.database",
@@ -51,7 +53,7 @@ class PushNotificationServiceForOneUser {
   ) async {
     final String serverAccessTokenKey = await getAccessToken();
     String endPointFirebaseCloudMessaging =
-        'https://fcm.googleapis.com/v1/projects/demons-c7b11/messages:send';
+        'https://fcm.googleapis.com/v1/projects/caffeine-cafe-47df1/messages:send';
 
     final Map<String, dynamic> message = {
       'message': {

@@ -76,7 +76,6 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(create: (context) => UpdateOrderStatusCubit()),
         BlocProvider(create: (context) => SendNotificationToAllUsersCubit()),
         BlocProvider(create: (context) => ManageNotificationCubit()),
-
         BlocProvider(
           create: (context) => GetNotificationsCubit()..getNotifications(),
         ),

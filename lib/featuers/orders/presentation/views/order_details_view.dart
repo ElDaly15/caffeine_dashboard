@@ -29,17 +29,35 @@ class OrderDetailsView extends StatelessWidget {
                   message: 'Order Status Updated Successfully',
                   type: AnimatedSnackBarType.success,
                 );
-              } else if (updateStatus is UpdateOrderStatusFailuer) {
+              }
+              if (updateStatus is UpdateOrderStatusFailuer) {
                 CustomSnackBar().showCustomSnackBar(
                   context: context,
                   message: 'Failed to Update Order Status',
                   type: AnimatedSnackBarType.error,
                 );
               }
+
+              if (updateStatus is SendAlertNotificationSuccess) {
+                CustomSnackBar().showCustomSnackBar(
+                  context: context,
+                  message: 'Notification Sent Successfully',
+                  type: AnimatedSnackBarType.success,
+                );
+              }
+              if (updateStatus is SendAlertNotificationError) {
+                CustomSnackBar().showCustomSnackBar(
+                  context: context,
+                  message: 'Failed to Send Notification',
+                  type: AnimatedSnackBarType.error,
+                );
+              }
             },
             builder: (context, updateStatus) {
               return ModalProgressHUD(
-                inAsyncCall: updateStatus is UpdateOrderStatusLoading,
+                inAsyncCall:
+                    updateStatus is UpdateOrderStatusLoading ||
+                    updateStatus is SendAlertNotificationLoading,
                 progressIndicator: const CircularProgressIndicator(
                   color: AppColors.mainColorTheme,
                 ),
@@ -76,7 +94,7 @@ class OrderDetailsView extends StatelessWidget {
                     ),
                     backgroundColor: AppColors.mainColorTheme,
                   ),
-                  body: const OrderDetailsViewBody(),
+                  body: OrderDetailsViewBody(userModel: state.userModel),
                 ),
               );
             },

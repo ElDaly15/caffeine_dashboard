@@ -1,10 +1,11 @@
 import 'package:caffeine_dashboard/core/utils/app_colors.dart' show AppColors;
 import 'package:caffeine_dashboard/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomAppBarForHomePage extends StatelessWidget {
-  const CustomAppBarForHomePage({super.key});
-
+  const CustomAppBarForHomePage({super.key, required this.onTap});
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,6 +24,14 @@ class CustomAppBarForHomePage extends StatelessWidget {
             style: TextStyles.font20SemiBold(
               context,
             ).copyWith(color: Colors.white),
+          ),
+          Spacer(),
+          InkWell(
+            onTap: onTap,
+            child: Icon(
+              FontAwesomeIcons.arrowRightFromBracket,
+              color: Colors.white,
+            ),
           ),
         ],
       ),

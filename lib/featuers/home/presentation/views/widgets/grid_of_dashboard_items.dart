@@ -1,3 +1,5 @@
+import 'package:caffeine_dashboard/featuers/admins/presentation/views/add_admin_view.dart';
+import 'package:caffeine_dashboard/featuers/admins/presentation/views/admin_view.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/add_ads_view.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/views/ads_view.dart';
 import 'package:caffeine_dashboard/featuers/branches/presentation/views/add_branch_view.dart';
@@ -17,14 +19,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:iconly/iconly.dart';
 
 class GridOfDashboardItems extends StatefulWidget {
-  const GridOfDashboardItems({super.key});
+  const GridOfDashboardItems({super.key, required this.isMainAdmin});
+  final bool isMainAdmin;
 
   @override
   State<GridOfDashboardItems> createState() => _GridOfDashboardItemsState();
 }
 
 class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
-  final List<DashboardMainCotnainerModel> dashboardMainCotnainerModel = [
+  final List<DashboardMainCotnainerModel>
+  dashboardMainCotnainerModelForRegularAdmin = [
     DashboardMainCotnainerModel(
       title: 'Users',
       icon: IconlyBold.user_2,
@@ -87,6 +91,80 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
       screen: AddBranchView(),
     ),
   ];
+  final List<DashboardMainCotnainerModel>
+  dashboardMainCotnainerModelForMainAdmin = [
+    DashboardMainCotnainerModel(
+      title: 'Users',
+      icon: IconlyBold.user_2,
+      screen: UsersView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Orders',
+      icon: IconlyBold.bag,
+      screen: OrdersView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Products',
+      icon: FontAwesomeIcons.barcode,
+      screen: ProductsView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Product',
+      icon: IconlyBold.plus,
+      screen: AddProductView(),
+    ),
+
+    DashboardMainCotnainerModel(
+      title: 'Ads',
+      icon: FontAwesomeIcons.signHanging,
+      screen: AdsView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Ads',
+      icon: IconlyBold.plus,
+      screen: AddAdsView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Notifications',
+      icon: IconlyBold.notification,
+      screen: NotificationView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Notification',
+      icon: IconlyBold.plus,
+      screen: AddNotificationView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Coupons',
+      icon: IconlyBold.discount,
+      screen: CopounView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Coupon',
+      icon: IconlyBold.plus,
+      screen: AddCopounView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Branches',
+      icon: Icons.coffee_rounded,
+      screen: BranchesView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Branch',
+      icon: IconlyBold.plus,
+      screen: AddBranchView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Admins',
+      icon: IconlyBold.shield_done,
+      screen: AdminView(),
+    ),
+    DashboardMainCotnainerModel(
+      title: 'Add Admin',
+      icon: IconlyBold.plus,
+      screen: AddAdminView(),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -97,18 +175,30 @@ class _GridOfDashboardItemsState extends State<GridOfDashboardItems> {
         mainAxisSpacing: 10,
         childAspectRatio: 1.35,
       ),
-      itemCount: dashboardMainCotnainerModel.length,
+      itemCount:
+          widget.isMainAdmin
+              ? dashboardMainCotnainerModelForMainAdmin.length
+              : dashboardMainCotnainerModelForRegularAdmin.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           child: ContainerOfSelectionItemInDashboard(
-            title: dashboardMainCotnainerModel[index].title,
-            icon: dashboardMainCotnainerModel[index].icon,
+            title:
+                widget.isMainAdmin
+                    ? dashboardMainCotnainerModelForMainAdmin[index].title
+                    : dashboardMainCotnainerModelForRegularAdmin[index].title,
+            icon:
+                widget.isMainAdmin
+                    ? dashboardMainCotnainerModelForMainAdmin[index].icon
+                    : dashboardMainCotnainerModelForRegularAdmin[index].icon,
             onPress: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return dashboardMainCotnainerModel[index].screen;
+                    return widget.isMainAdmin
+                        ? dashboardMainCotnainerModelForMainAdmin[index].screen
+                        : dashboardMainCotnainerModelForRegularAdmin[index]
+                            .screen;
                   },
                 ),
               );

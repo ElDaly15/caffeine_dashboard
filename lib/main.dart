@@ -1,3 +1,7 @@
+import 'package:caffeine_dashboard/featuers/admins/presentation/manager/add_admin/add_admin_cubit.dart';
+import 'package:caffeine_dashboard/featuers/admins/presentation/manager/get_admins/get_admins_cubit.dart';
+import 'package:caffeine_dashboard/featuers/admins/presentation/manager/manage_admin/manage_admin_cubit.dart';
+import 'package:caffeine_dashboard/featuers/admins/presentation/manager/search_admins/search_admins_cubit.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/manager/add_ads/add_ads_cubit.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/manager/delete_ads/delete_ads_cubit.dart';
 import 'package:caffeine_dashboard/featuers/ads/presentation/manager/get_ad_by_id/get_ad_by_id_cubit.dart';
@@ -10,7 +14,8 @@ import 'package:caffeine_dashboard/featuers/branches/presentation/manager/get_br
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/delete_copoun/delete_copoun_cubit.dart';
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/edit_copoun/edit_copoun_cubit.dart';
 import 'package:caffeine_dashboard/featuers/copouns/presentation/manager/manage_copouns/manage_copouns_cubit.dart';
-import 'package:caffeine_dashboard/featuers/home/presentation/views/home_view.dart';
+import 'package:caffeine_dashboard/featuers/home/presentation/manager/check_user_login/check_user_login_cubit.dart';
+import 'package:caffeine_dashboard/featuers/home/presentation/views/start_view.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/manager/get_notification_cubit/get_notifications_cubit.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/manager/manage_notification/manage_notification_cubit.dart';
 import 'package:caffeine_dashboard/featuers/notification/presentation/manager/send_notification_to_all_users/send_notification_to_all_users_cubit.dart';
@@ -79,12 +84,17 @@ class CaffeineDashboardApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GetNotificationsCubit()..getNotifications(),
         ),
+        BlocProvider(create: (context) => AddAdminCubit()),
+        BlocProvider(create: (context) => GetAdminsCubit()..getAdmins()),
+        BlocProvider(create: (context) => ManageAdminCubit()),
+        BlocProvider(create: (context) => SearchAdminsCubit()),
+        BlocProvider(create: (context) => CheckUserLoginCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
-        home: HomeView(),
+        home: StartView(),
       ),
     );
   }
